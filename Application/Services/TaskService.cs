@@ -72,5 +72,43 @@ namespace myRESTAPI.Application.Services
         {
             return await _taskRepository.DeleteTask(id);
         }
+
+        public async Task<TaskDTO> UpdateTaskAsync(int id, UpdateTaskDTO dto)
+        {
+            var entityToUpdate = new TaskEntity
+            {
+                Title = dto.Title,
+                Description = dto.Description,
+                Deadline = dto.Deadline,
+            };
+            var entity = await _taskRepository.UpdateTask(id, entityToUpdate);
+
+            return new TaskDTO
+            {
+                Id = entity.Id,
+                Title = entity.Title,
+                Description = entity.Description,
+                Deadline = entity.Deadline,
+                CreatedAt = entity.CreatedAt
+            };
+        }
+
+        public async Task<TaskDTO> CompleteTaskAsync(int id)
+        {
+            var entity = await _taskRepository.CompleteTask(id);
+            if (entity == null)
+            {
+                return null;
+            }
+
+            return new TaskDTO
+            {
+                Id = entity.Id,
+                Title = entity.Title,
+                Description = entity.Description,
+                Deadline = entity.Deadline,
+                CreatedAt = entity.CreatedAt
+            };
+        }
     }
 }

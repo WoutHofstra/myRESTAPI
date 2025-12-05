@@ -35,11 +35,11 @@ public class TasksController : ControllerBase
     public async Task<IActionResult> CreateTask(CreateTaskDTO dto)
     {
         var task = await _taskService.CreateTaskAsync(dto);
-        return CreatedAtAction(nameof(GetTaskById), new { id = task.id }, task);
+        return CreatedAtAction(nameof(GetTaskById), new { id = task.Id }, task);
     }
 
     [HttpPut]
-    public async Task<IActionResult> UpdateTask(int id, UpdateTaskDto dto)
+    public async Task<IActionResult> UpdateTask(int id, UpdateTaskDTO dto)
     {
         var task = await _taskService.UpdateTaskAsync(id, dto);
         if (task == null) 
@@ -52,8 +52,8 @@ public class TasksController : ControllerBase
     [HttpDelete]
     public async Task<IActionResult> DeleteTask(int id)
     {
-        var deleted = _taskService.DeleteTaskAsync(id);
-        if (deleted == true)
+        var deleted = await _taskService.DeleteTaskAsync(id);
+        if (deleted)
         {
             return NoContent();
         }
@@ -63,11 +63,11 @@ public class TasksController : ControllerBase
     [HttpPut]
     public async Task<IActionResult> CompleteTask(int id)
     {
-        var task = _taskService.CompleteTaskAsync(id);
+        var task = await _taskService.CompleteTaskAsync(id);
         if (task == null)
         {
             return NotFound();
         }
-        return task;
+        return Ok(task);
     } 
 }

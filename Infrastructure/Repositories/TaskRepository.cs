@@ -39,5 +39,19 @@ namespace myRESTAPI.Infrastructure.Repositories
             await _db.SaveChangesAsync();
             return true;
         }
+
+        public async Task<TaskEntity> UpdateTask(int id, TaskEntity entity)
+        {
+            var result = await _db.Tasks.UpdateAsync(id, entity);
+            await _db.SaveChangesAsync();
+            return result;
+        }
+
+        public async Task<TaskEntity> CompleteTask(int id)
+        {
+            var entity = await _db.Tasks.CompleteAsync();
+            await _db.SaveChangesAsync();
+            return entity;
+        }
     }
 }
