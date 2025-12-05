@@ -10,7 +10,5 @@ namespace myRESTAPI.Application.Interfaces
         Task<TaskResponseDTO?> UpdateTaskAsync(int id, UpdateTaskDTO dto);
         Task<bool> DeleteTaskAsync(int id);
         Task<TaskResponseDTO?> CompleteTaskAsync(int id);
-    }
-
-    
+    }    
 }

@@ -26,7 +26,7 @@ namespace myRESTAPI.Application.Services
                 CreatedAt = DateTime.UtcNow
             };
 
-            var saved = _taskRepository.CreateTask(entity);
+            var saved = await _taskRepository.CreateTask(entity);
 
             return new TaskDTO
             {
