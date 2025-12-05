@@ -6,6 +6,4 @@ namespace myRESTAPI.API.Config
         public required int DefaultPageSize { get; set; }
         public required bool EnableSoftDelete { get; set; }
     };
-
-    
 }

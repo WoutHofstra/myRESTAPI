@@ -1,9 +1,9 @@
 namespace myRESTAPI.API.Config
 {
-    public class ConnectionStrings
+    public class Cors
     {
-        public string? DefaultConnection { get; set; }
-    }
-
-    
+        public List<string> AllowedOrigins { get; set; }
+        public List<string> AllowedMethods { get; set; }
+        public List<string> AllowedHeaders { get; set; }
+    };
 }
