@@ -1,13 +1,14 @@
 using myRESTAPI.Domain.Entities;
+using myRESTAPI.Infrastructure.Persistence;
 using myRESTAPI.Infrastructure.Repositories;
 
 namespace myRESTAPI.Infrastructure.Repositories
 {
     public class TaskRepository : ITaskRepository
     {
-        private readonly AppDbContext _db;
+        private readonly TaskDbContext _db;
 
-        public TaskRepository(AppDbContext db)
+        public TaskRepository(TaskDbContext db)
         {
             _db = db;
         }

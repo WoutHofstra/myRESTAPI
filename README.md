@@ -19,6 +19,9 @@ HTTP-request -> Controller -> Service -> Repository -> Database
 
 This will make the system easily maintainable, scalable and easy to work with.
 
+## 📦 Database
+For my database, I chose to go with SQLite. I chose this because it is easy to work with, and works well for small apps like this one. I have used postgreSQL before, but not SQLite. I could have gone for SQL Server, but for this project I want to focus fully on the architecture and the C# coding I have to be doing. Adding a database I don't know yet would be too much for one project. 
+
 ## ⚒️ What each part does
 
 ### API/Program.cs
