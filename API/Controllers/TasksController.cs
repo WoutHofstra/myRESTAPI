@@ -1,19 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using myRESTAPI.API.DTOs;
-
-/*
-This file controls all the tasks the user is able to access. 
-
-The user can:
-    - get all tasks
-    - get tasks by id
-    - create tasks
-    - update tasks
-    - delete tasks
-    - mark tasks as completed
-
-This file only validates incoming data, maps DTOs, calls services, then returns results. 
-*/
+using myRESTAPI.Application.DTOs;
+using myRESTAPI.Application.Services;
 
 [ApiController]
 [Route("api/v1/tasks")]
@@ -36,7 +23,7 @@ public class TasksController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetTaskById(int id)
     {
-        var task = await _taskService.GetTaskByIdAsync(id);
+        var task = await _taskService.GetTaskById(id);
         if (task == null)
         {
             return NotFound();
