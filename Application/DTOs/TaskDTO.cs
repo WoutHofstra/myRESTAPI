@@ -8,6 +8,4 @@ namespace myRESTAPI.Application.DTOs
         public DateTime Deadline { get; set; }
         public DateTime CreatedAt { get; set; }
     }
-
-    
 }
