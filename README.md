@@ -57,5 +57,7 @@ This file will probably increase as the project goes on and I need more config v
 
 ## How to run
 Eventually, you will be able to run this by doing: 
-``` dotnet run ```
+``` 
+dotnet run 
+```
 However, it does not work yet at this point.

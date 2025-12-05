@@ -1,5 +1,6 @@
-using myRESTAPI.Application.DTOs;
 using myRESTAPI.Domain.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace myRESTAPI.Infrastructure.Repositories
 {

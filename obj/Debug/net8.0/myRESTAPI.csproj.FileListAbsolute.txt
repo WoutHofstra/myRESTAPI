@@ -1,7 +1,5 @@
 /home/hofst/myRESTAPI/obj/Debug/net8.0/myRESTAPI.csproj.AssemblyReference.cache
 /home/hofst/myRESTAPI/obj/Debug/net8.0/myRESTAPI.GeneratedMSBuildEditorConfig.editorconfig
-/home/hofst/myRESTAPI/obj/Debug/net8.0/myRESTAPI.AssemblyInfoInputs.cache
-/home/hofst/myRESTAPI/obj/Debug/net8.0/myRESTAPI.AssemblyInfo.cs
 /home/hofst/myRESTAPI/obj/Debug/net8.0/myRESTAPI.csproj.CoreCompileInputs.cache
 /home/hofst/myRESTAPI/obj/Debug/net8.0/myRESTAPI.MvcApplicationPartsAssemblyInfo.cs
 /home/hofst/myRESTAPI/obj/Debug/net8.0/myRESTAPI.MvcApplicationPartsAssemblyInfo.cache

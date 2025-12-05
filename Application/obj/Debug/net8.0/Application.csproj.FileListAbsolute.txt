@@ -1,0 +1,4 @@
+/home/hofst/myRESTAPI/Application/obj/Debug/net8.0/Application.csproj.AssemblyReference.cache
+/home/hofst/myRESTAPI/Application/obj/Debug/net8.0/Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/hofst/myRESTAPI/Application/obj/Debug/net8.0/Application.csproj.CoreCompileInputs.cache
+/home/hofst/myRESTAPI/Application/obj/Debug/net8.0/Application.sourcelink.json

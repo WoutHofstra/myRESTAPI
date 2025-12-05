@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "b0luA5GWGKVNabSpGD8iKPoStLF+3tHXXl9MykigcsPOAzGlSXDTA64PEeAED+jfdYlY2Lw+FLH5tr/Kw9k5BA==",
+  "success": true,
+  "projectFilePath": "/home/hofst/myRESTAPI/Application/Application.csproj",
+  "expectedPackageFiles": [
+    "/home/hofst/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/home/hofst/.nuget/packages/fluentvalidation/11.12.0/fluentvalidation.11.12.0.nupkg.sha512",
+    "/home/hofst/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

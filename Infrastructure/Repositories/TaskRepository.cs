@@ -1,6 +1,9 @@
 using myRESTAPI.Domain.Entities;
 using myRESTAPI.Infrastructure.Persistence;
-using myRESTAPI.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System;
 
 namespace myRESTAPI.Infrastructure.Repositories
 {
@@ -41,18 +44,30 @@ namespace myRESTAPI.Infrastructure.Repositories
             return true;
         }
 
-        public async Task<TaskEntity> UpdateTask(int id, TaskEntity entity)
+        public async Task<TaskEntity> UpdateTask(int id, TaskEntity updatedEntity)
         {
-            var result = await _db.Tasks.UpdateAsync(id, entity);
+            var existing = await _db.Tasks.FindAsync(updatedEntity);
+            if (existing == null)
+                return null;
+
+            existing.Title = updatedEntity.Title;
+            existing.Description = updatedEntity.Description;
+            existing.Deadline = updatedEntity.Deadline;
+
             await _db.SaveChangesAsync();
-            return result;
+            return existing;
         }
 
         public async Task<TaskEntity> CompleteTask(int id)
         {
-            var entity = await _db.Tasks.CompleteAsync();
+            var existing = await _db.Tasks.FindAsync(id);
+            if (existing == null)
+                return null;
+
+            existing.CompletedAt = DateTime.UtcNow;
+
             await _db.SaveChangesAsync();
-            return entity;
+            return existing;
         }
     }
 }
