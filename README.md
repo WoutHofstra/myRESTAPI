@@ -82,9 +82,7 @@ You should be seeing something like ```Now listening on: http://localhost:5000``
 
 #### Create task:
 ```
-curl -X POST "http://localhost:5000/api/v1/tasks" \
--H "Content-Type: application/json" \
--d '{"title:"Put title here","description":"Testing the POST endpoint","deadline":"2025-01-01T00:00:00Z"}'
+curl -X POST "http://localhost:5000/api/v1/tasks" -H "Content-Type: application/json" -d '{"title:"Put title here","description":"Testing the POST endpoint","deadline":"2025-01-01T00:00:00Z"}'
 ```
 
 #### Get all tasks:
@@ -99,9 +97,7 @@ curl -X GET "http://localhost:5000/api/v1/tasks/task id here"
 
 #### Update task:
 ```
-curl -X PUT "http://localhost:5000/api/v1/tasks/task id here" \
--H "Content-Type: application/json" \
--d '{"title":"Put updates title here","description":"Put updated description here","deadline":"2026-01-01T00:00:00Z"}'
+curl -X PUT "http://localhost:5000/api/v1/tasks/task id here" -H "Content-Type: application/json" -d '{"title":"Put updates title here","description":"Put updated description here","deadline":"2026-01-01T00:00:00Z"}'
 ```
 
 #### Complete task:
