@@ -46,7 +46,7 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> UpdateTask(int id, TaskEntity updatedEntity)
         {
-            var existing = await _db.Tasks.FindAsync(updatedEntity);
+            var existing = await _db.Tasks.FindAsync(id);
             if (existing == null)
                 return null;
 

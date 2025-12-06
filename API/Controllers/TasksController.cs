@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using myRESTAPI.Application.DTOs;
 using myRESTAPI.Application.Services;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 
 [ApiController]
 [Route("api/v1/tasks")]
@@ -34,14 +33,14 @@ public class TasksController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateTask(CreateTaskDTO dto)
+    public async Task<IActionResult> CreateTask([FromBody] CreateTaskDTO dto)
     {
         var task = await _taskService.CreateTaskAsync(dto);
         return CreatedAtAction(nameof(GetTaskById), new { id = task.Id }, task);
     }
 
-    [HttpPut]
-    public async Task<IActionResult> UpdateTask(int id, UpdateTaskDTO dto)
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateTask(int id, [FromBody] UpdateTaskDTO dto)
     {
         var task = await _taskService.UpdateTaskAsync(id, dto);
         if (task == null) 
@@ -51,18 +50,18 @@ public class TasksController : ControllerBase
         return Ok(task);
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteTask(int id)
     {
         var deleted = await _taskService.DeleteTaskAsync(id);
         if (deleted)
         {
-            return NoContent();
+            return Ok(deleted);
         }
         return NotFound();
     }
 
-    [HttpPut]
+    [HttpPut("{id}/complete")]
     public async Task<IActionResult> CompleteTask(int id)
     {
         var task = await _taskService.CompleteTaskAsync(id);
