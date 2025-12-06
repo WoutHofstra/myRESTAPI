@@ -1,9 +1,9 @@
 # myRESTAPI 
 
-This in-progress project is going to be a production grade web API. I am trying to follow all the professional rules for the architecture.  
-In the end it is going to be able to store tasks, like the typical todo list project.
+This project is a production grade web API. I am trying to follow all the professional rules for the architecture.  
+It is able to store tasks, like the typical todo list project.
 
-So far, the API includes:
+#### The API includes:
 1. A REST controller (API/Controllers/TasksController.cs)
 2. A business logic layer (Application/Services/TaskService.cs)
 3. A data access layer (Infrastructure/Repositories/TaskRepository.cs)
@@ -26,10 +26,17 @@ For my database, I chose to go with SQLite. I chose this because it is easy to w
 
 ### 🥃 API/Program.cs
 This file, Program.cs, configures the app and sets everything up. The settings are imported from appsettings.json
-**Later on, this will also set up the database**
+This part also fully sets up EF Core DbContext, and builds and runs the app.
 
 ### 🎮 API/Controllers
-This part will be receiving the actual Http requests. It validates incoming data and maps all of it to the classes I have made.
+This part will be receiving the actual Http requests:  
+- ```POST /api/tasks``` => Creates a task
+- ```GET /api/tasks``` => Gets all tasks
+- ```GET /api/tasks/{id}``` => Gets a single task
+- ```PUT /api/tasks/{id}``` => Updates a task
+- ```DELETE /api/tasks/{id}``` => Deletes a task
+- ```PUT /api/tasks/{id}/complete``` => Marks a task as being completed
+It also validates incoming data and maps all of it to the classes I have made.
 It then contacts the next layer. The controllers do not do any business logic. It is just a 'dumb' file that moves data.
 
 ### 👨‍🍳 Application/Services
@@ -53,11 +60,44 @@ This file includes:
 - Connection strings
 - App settings
 - Cors (Cross origin resource sharing) details  
-This file will probably increase as the project goes on and I need more config variables, we'll see
 
 ## 🚀 How to run
-Eventually, you will be able to run this by doing: 
+1. First you have to restore all the packages:
 ``` 
-dotnet run 
+dotnet restore
 ```
-However, it does not work yet at this point.
+2. Then you apply the migrations and create the database:
+```
+dotnet ef database update --project ./Infrastructure/Infrastructure.csproj --startup-project ./API/API.csproj
+```
+3. After that you can run the API by doing:
+```
+dotnet run --project ./API/API.csproj
+```
+4. Done!
+
+You should be seeing something like ```Now listening on: http://localhost:5000```. If so, the API is working. Then you can test all the endpoints with curl commands for example.
+
+### Example curl commands
+
+#### Create task:
+curl -X POST "http://localhost:5000/api/v1/tasks" \
+-H "Content-Type: application/json" \
+-d '{"title:"Put title here","description":"Testing the POST endpoint","deadline":"2025-01-01T00:00:00Z"}'
+
+#### Get all tasks:
+curl -X GET "http:localhost:5000/api/v1/tasks"
+
+#### Get task by ID:
+curl -X GET "http://localhost:5000/api/v1/tasks/<task id here>"
+
+#### Update task:
+curl -X PUT "http://localhost:5000/api/v1/tasks/<task id here>" \
+-H "Content-Type: application/json" \
+-d '{"title":"Put updates title here","description":"Put updated description here","deadline":"2026-01-01T00:00:00Z"}'
+
+#### Complete task:
+curl -X POST "http://localhost:5000/api/v1/tasks/<task id here>/complete"
+
+#### Delete task:
+curl -X DELETE "http://localhost:5000/api/v1/tasks/<task id here>"
