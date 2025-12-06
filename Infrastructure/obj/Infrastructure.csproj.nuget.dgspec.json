@@ -4,73 +4,6 @@
     "/home/hofst/myRESTAPI/Infrastructure/Infrastructure.csproj": {}
   },
   "projects": {
-    "/home/hofst/myRESTAPI/Application/Application.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/hofst/myRESTAPI/Application/Application.csproj",
-        "projectName": "Application",
-        "projectPath": "/home/hofst/myRESTAPI/Application/Application.csproj",
-        "packagesPath": "/home/hofst/.nuget/packages/",
-        "outputPath": "/home/hofst/myRESTAPI/Application/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/hofst/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "/home/hofst/myRESTAPI/Domain/Domain.csproj": {
-                "projectPath": "/home/hofst/myRESTAPI/Domain/Domain.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "AutoMapper": {
-              "target": "Package",
-              "version": "[12.*, )"
-            },
-            "FluentValidation": {
-              "target": "Package",
-              "version": "[11.*, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.121/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
     "/home/hofst/myRESTAPI/Domain/Domain.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -146,9 +79,6 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/hofst/myRESTAPI/Application/Application.csproj": {
-                "projectPath": "/home/hofst/myRESTAPI/Application/Application.csproj"
-              },
               "/home/hofst/myRESTAPI/Domain/Domain.csproj": {
                 "projectPath": "/home/hofst/myRESTAPI/Domain/Domain.csproj"
               }
@@ -167,15 +97,23 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.*, )"
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[8.*, )"
+              "version": "[8.0.0, )"
             },
-            "Microsoft.EntityFrameworkCore.Tools": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
-              "version": "[8.*, )"
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [

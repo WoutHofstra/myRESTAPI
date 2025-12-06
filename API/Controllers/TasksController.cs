@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using myRESTAPI.Application.DTOs;
 using myRESTAPI.Application.Services;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 [ApiController]
 [Route("api/v1/tasks")]

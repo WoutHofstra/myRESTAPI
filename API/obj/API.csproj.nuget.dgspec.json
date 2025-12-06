@@ -105,6 +105,9 @@
             "projectReferences": {
               "/home/hofst/myRESTAPI/Domain/Domain.csproj": {
                 "projectPath": "/home/hofst/myRESTAPI/Domain/Domain.csproj"
+              },
+              "/home/hofst/myRESTAPI/Infrastructure/Infrastructure.csproj": {
+                "projectPath": "/home/hofst/myRESTAPI/Infrastructure/Infrastructure.csproj"
               }
             }
           }
@@ -223,9 +226,6 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/hofst/myRESTAPI/Application/Application.csproj": {
-                "projectPath": "/home/hofst/myRESTAPI/Application/Application.csproj"
-              },
               "/home/hofst/myRESTAPI/Domain/Domain.csproj": {
                 "projectPath": "/home/hofst/myRESTAPI/Domain/Domain.csproj"
               }
@@ -244,15 +244,23 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.*, )"
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[8.*, )"
+              "version": "[8.0.0, )"
             },
-            "Microsoft.EntityFrameworkCore.Tools": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
-              "version": "[8.*, )"
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [

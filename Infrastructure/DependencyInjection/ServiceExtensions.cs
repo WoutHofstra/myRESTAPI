@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using myRESTAPI.Infrastructure.Persistence;
 using myRESTAPI.Infrastructure.Repositories;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 
 namespace myRESTAPI.Infrastructure.DependencyInjection
 {

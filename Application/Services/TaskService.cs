@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using myRESTAPI.Infrastructure.Repositories;
 using System;
+using System.Linq;
 
 namespace myRESTAPI.Application.Services
 {

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace myRESTAPI.API.Config
 {
     public class Cors
