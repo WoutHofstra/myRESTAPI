@@ -87,7 +87,7 @@ curl -X POST "http://localhost:5000/api/v1/tasks" -H "Content-Type: application/
 
 #### Get all tasks:
 ```
-curl -X GET "http:localhost:5000/api/v1/tasks"
+curl -X GET "http://localhost:5000/api/v1/tasks"
 ```
 
 #### Get task by ID:
