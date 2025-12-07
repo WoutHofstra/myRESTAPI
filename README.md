@@ -15,9 +15,10 @@ It is able to store tasks, like the typical todo list project.
 ## 🏢 Architecture overview
 
 This project will follow a layered architecture:
-HTTP-request -> Controller -> Service -> Repository -> Database
 
-This will make the system easily maintainable, scalable and easy to work with.
+![my rest api image](./assets/myRESTAPI.png)
+
+This will make the system easily maintainable, scalable and easy to work with. I got most of the inspiration for this design from this website: [learn.microsoft.com/en-us/aspnet](https://learn.microsoft.com/en-us/aspnet/core/fundamentals). Also, I used chatGPT a bit to help me with some of the syntaxes of uncommon things and with weird errors I didn't understand along the way.
 
 ## 📦 Database
 For my database, I chose to go with SQLite. I chose this because it is easy to work with, and works well for small apps like this one. I have used postgreSQL before, but not SQLite. I could have gone for SQL Server, but for this project I want to focus fully on the architecture and the C# coding I have to be doing. Adding a database I don't know yet would be too much for one project. 
@@ -82,7 +83,7 @@ You should be seeing something like ```Now listening on: http://localhost:5000``
 
 #### Create task:
 ```
-curl -X POST "http://localhost:5000/api/v1/tasks" -H "Content-Type: application/json" -d '{"title:"Put title here","description":"Testing the POST endpoint","deadline":"2025-01-01T00:00:00Z"}'
+curl -X POST "http://localhost:5000/api/v1/tasks" -H "Content-Type: application/json" -d '{"title":"Put title here","description":"Testing the POST endpoint","deadline":"2025-01-01T00:00:00Z"}'
 ```
 
 #### Get all tasks:
