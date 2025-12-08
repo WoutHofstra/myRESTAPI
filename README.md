@@ -8,7 +8,7 @@ It is able to store tasks, like the typical todo list project.
 <tr>
 <td>
   <a href="https://youtu.be/lnvgA3NUfUg">
-    <img src="./assets/RESTAPIthumbnail.png" width="150">
+    <img src="./assets/RESTAPIthumbnail.png" width="300">
   </a>
 </td>
 <td>
