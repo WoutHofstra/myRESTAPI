@@ -12,7 +12,7 @@ It is able to store tasks, like the typical todo list project.
   </a>
 </td>
 <td>
-  I have made a quick video going over the project. In the video I'm going over how it works, every folders purpose, and I'll give a demonstration of every endpoint.
+  I have made a quick video going over the project. In the video I'm going over how it works, every folders purpose, and I'll give a demonstration of every endpoint. Click the image to the left to go there!
 </td>
 </tr>
 </table>
