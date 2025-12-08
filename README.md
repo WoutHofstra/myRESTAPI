@@ -3,6 +3,20 @@
 This project is a production grade web API. I am trying to follow all the professional rules for the architecture.  
 It is able to store tasks, like the typical todo list project.
 
+## Video
+<table>
+<tr>
+<td>
+  <a href="https://youtu.be/lnvgA3NUfUg">
+    <img src="./assets/RESTAPIthumbnail.png" width="150">
+  </a>
+</td>
+<td>
+  I have made a quick video going over the project. In the video I'm going over how it works, every folders purpose, and I'll give a demonstration of every endpoint.
+</td>
+</tr>
+</table>
+
 #### The API includes:
 1. A REST controller (API/Controllers/TasksController.cs)
 2. A business logic layer (Application/Services/TaskService.cs)
