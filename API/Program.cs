@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using myRESTAPI.API.Config;
 using myRESTAPI.Infrastructure.DependencyInjection;
 using myRESTAPI.Application.Services;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,5 +44,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthorization();
 app.MapControllers();
+
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+app.Urls.Add($"http://*:{port}");
 
 app.Run();
