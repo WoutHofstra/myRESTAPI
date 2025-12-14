@@ -7,6 +7,7 @@ using myRESTAPI.API.Config;
 using myRESTAPI.Infrastructure.DependencyInjection;
 using myRESTAPI.Application.Services;
 using System;
+using System.Collections.Generic;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,11 +23,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var corsSettings = builder.Configuration.GetSection("Cors").Get<Cors>();
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins(corsSettings.AllowedOrigins.ToArray())
+        var allowedOrigins = corsSettings?.AllowedOrigins?.ToArray() ?? new string[] {"*"};
+        policy.WithOrigins(allowedOrigins)
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
