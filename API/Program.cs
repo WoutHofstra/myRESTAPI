@@ -11,10 +11,6 @@ using System.Collections.Generic;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
-builder.Services.Configure<Cors>(builder.Configuration.GetSection("Cors"));
-builder.Services.Configure<ConnectionStrings>(builder.Configuration.GetSection("ConnectionStrings"));
-
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<ITaskService, TaskService>();
 
@@ -22,7 +18,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var corsSettings = builder.Configuration.GetSection("Cors").Get<Cors>();
 
 builder.Services.AddCors(options =>
 {
