@@ -1,13 +1,9 @@
-using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using myRESTAPI.API.Config;
 using myRESTAPI.Infrastructure.DependencyInjection;
 using myRESTAPI.Application.Services;
-using System;
-using System.Collections.Generic;
+using myRESTAPI.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +13,13 @@ builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var connectionString = "Data Source=/home/app.db";
+
+builder.Services.AddDbContext<TaskDbContext>(options =>
+{
+    options.UseSqlite(connectionString);
+});
 
 
 builder.Services.AddCors(options =>
@@ -30,6 +33,12 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<TaskDbContext>();
+    db.Database.EnsureCreated();
+}
 
 app.UseCors();
 
