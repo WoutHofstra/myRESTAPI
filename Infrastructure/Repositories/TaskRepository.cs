@@ -59,6 +59,8 @@ namespace myRESTAPI.Infrastructure.Repositories
             if (updatedEntity.Deadline != existing.Deadline)
                 existing.Deadline = updatedEntity.Deadline;
 
+
+            _db.Update(existing);
             await _db.SaveChangesAsync();
             return existing;
         }
@@ -72,6 +74,7 @@ namespace myRESTAPI.Infrastructure.Repositories
             existing.IsCompleted = true;
             existing.UpdatedAt = DateTime.UtcNow;
 
+            _db.Update(existing);
             await _db.SaveChangesAsync();
             return existing;
         }
