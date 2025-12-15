@@ -64,7 +64,7 @@ namespace myRESTAPI.Infrastructure.Repositories
             if (existing == null)
                 return null;
 
-            existing.CompletedAt = DateTime.UtcNow;
+            existing.IsCompleted = true;
 
             await _db.SaveChangesAsync();
             return existing;
