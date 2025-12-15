@@ -50,9 +50,14 @@ namespace myRESTAPI.Infrastructure.Repositories
             if (existing == null)
                 return null;
 
-            existing.Title = updatedEntity.Title;
-            existing.Description = updatedEntity.Description;
-            existing.Deadline = updatedEntity.Deadline;
+            if (updatedEntity.Title != existing.Title)
+                existing.Title = updatedEntity.Title;
+
+            if (updatedEntity.Description != existing.Description)
+                existing.Description = updatedEntity.Description;
+
+            if (updatedEntity.Deadline != existing.Deadline)
+                existing.Deadline = updatedEntity.Deadline;
 
             await _db.SaveChangesAsync();
             return existing;
@@ -65,6 +70,7 @@ namespace myRESTAPI.Infrastructure.Repositories
                 return null;
 
             existing.IsCompleted = true;
+            existing.UpdatedAt = DateTime.UtcNow;
 
             await _db.SaveChangesAsync();
             return existing;
