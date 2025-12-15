@@ -12,3 +12,5 @@
 /home/hofst/myRESTAPI/Infrastructure/obj/Debug/net8.0/refint/Infrastructure.dll
 /home/hofst/myRESTAPI/Infrastructure/obj/Debug/net8.0/Infrastructure.pdb
 /home/hofst/myRESTAPI/Infrastructure/obj/Debug/net8.0/ref/Infrastructure.dll
+/home/hofst/myRESTAPI/Infrastructure/bin/Debug/net8.0/Infrastructure.runtimeconfig.json
+/home/hofst/myRESTAPI/Infrastructure/obj/Debug/net8.0/Infrastructure.genruntimeconfig.cache
