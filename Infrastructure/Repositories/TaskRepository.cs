@@ -26,14 +26,15 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> GetById(int id)
         {
-            var task = await _db.Tasks.AsNoTracking().FirstOrDefaultAsync(task => task.Id == id);
-            return task;
+            IQueryable<TaskEntity> query = _db.Tasks.AsQueryable();
+            query = query.Where(task => task.Id == id);
+            return await query.FirstOrDefaultAsync();
         }
 
         public async Task<List<TaskEntity>> GetAllTasks()
         {
-            var tasks = await _db.Tasks.AsNoTracking().ToListAsync();
-            return tasks;
+            IQueryable<TaskEntity> query = _db.Tasks.AsQueryable();
+            return await query.ToListAsync();
         }
 
         public async Task<bool> DeleteTask(int id)
