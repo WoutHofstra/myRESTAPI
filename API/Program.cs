@@ -18,6 +18,7 @@ var connectionString = Environment.GetEnvironmentVariable("DefaultConnection")
 builder.Services.AddDbContext<TaskDbContext>(options =>
 {
     options.UseSqlite(connectionString);
+    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
 
 builder.Services.AddControllers();
