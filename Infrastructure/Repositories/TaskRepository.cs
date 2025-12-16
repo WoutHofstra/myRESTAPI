@@ -26,14 +26,14 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> GetById(int id)
         {
-            IQueryable<TaskEntity> query = _db.Tasks.AsQueryable();
+            IQueryable<TaskEntity> query = _db.Tasks.AsNoTracking().AsQueryable();
             query = query.Where(task => task.Id == id);
             return await query.FirstOrDefaultAsync();
         }
 
         public async Task<List<TaskEntity>> GetAllTasks()
         {
-            IQueryable<TaskEntity> query = _db.Tasks.AsQueryable();
+            IQueryable<TaskEntity> query = _db.Tasks.AsNoTracking().AsQueryable();
             return await query.ToListAsync();
         }
 
