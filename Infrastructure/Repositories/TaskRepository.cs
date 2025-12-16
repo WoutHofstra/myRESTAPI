@@ -25,11 +25,13 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> GetById(int id)
         {
+            _db.ChangeTracker.Clear();
             return await _db.Tasks.FindAsync(id);
         }
 
         public async Task<List<TaskEntity>> GetAllTasks()
         {
+            _db.ChangeTracker.Clear();
             return await _db.Tasks.ToListAsync();
         }
 
@@ -71,7 +73,7 @@ namespace myRESTAPI.Infrastructure.Repositories
 
             existing.IsCompleted = true;
             existing.UpdatedAt = DateTime.UtcNow;
-            
+
             await _db.SaveChangesAsync();
             return existing;
         }
