@@ -26,14 +26,14 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> GetById(int id)
         {
-            IQueryable<TaskEntity> query = _db.Tasks.AsNoTracking().AsQueryable();
+            IQueryable<TaskEntity> query = _db.Tasks.AsQueryable();
             query = query.Where(task => task.Id == id);
             return await query.FirstOrDefaultAsync();
         }
 
         public async Task<List<TaskEntity>> GetAllTasks()
         {
-            IQueryable<TaskEntity> query = _db.Tasks.AsNoTracking().AsQueryable();
+            IQueryable<TaskEntity> query = _db.Tasks.AsQueryable();
             return await query.ToListAsync();
         }
 
@@ -50,7 +50,9 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> UpdateTask(int id, TaskEntity updatedEntity)
         {
-            var existing = await _db.Tasks.FindAsync(id);
+            IQueryable<TaskEntity> query = _db.Tasks.AsQueryable();
+            query = query.Where(task => task.Id == id);
+            var existing = await query.FirstOrDefaultAsync();
             if (existing == null)
                 return null;
 
@@ -69,7 +71,9 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> CompleteTask(int id)
         {
-            var existing = await _db.Tasks.FindAsync(id);
+            IQueryable<TaskEntity> query = _db.Tasks.AsQueryable();
+            query = query.Where(task => task.Id == id);
+            var existing = await query.FirstOrDefaultAsync();
             if (existing == null)
                 return null;
 
