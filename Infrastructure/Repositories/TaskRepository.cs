@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
+using System.Linq;
 
 namespace myRESTAPI.Infrastructure.Repositories
 {
@@ -25,14 +26,14 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> GetById(int id)
         {
-            _db.ChangeTracker.Clear();
-            return await _db.Tasks.FindAsync(id);
+            var task = await _db.Tasks.AsNoTracking().FirstOrDefaultAsync(task => task.Id == id);
+            return task;
         }
 
         public async Task<List<TaskEntity>> GetAllTasks()
         {
-            _db.ChangeTracker.Clear();
-            return await _db.Tasks.ToListAsync();
+            var tasks = await _db.Tasks.AsNoTracking().ToListAsync();
+            return tasks;
         }
 
         public async Task<bool> DeleteTask(int id)
