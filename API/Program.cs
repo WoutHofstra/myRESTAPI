@@ -4,11 +4,13 @@ using myRESTAPI.Infrastructure.DependencyInjection;
 using myRESTAPI.Application.Services;
 using myRESTAPI.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using myRESTAPI.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<ITaskService, TaskService>();
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 
 var connectionString = "Data Source=/home/app.db";
 
