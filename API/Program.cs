@@ -5,13 +5,15 @@ using myRESTAPI.Application.Services;
 using myRESTAPI.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using myRESTAPI.Infrastructure.Repositories;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<ITaskService, TaskService>();
 
-var connectionString = "Data Source=/home/app.db";
+var connectionString = Environment.GetEnvironmentVariable("CUSTOMCONNSTRING_DefaultConnection")
+    ?? "Data Source=app.db";
 
 builder.Services.AddDbContext<TaskDbContext>(options =>
 {
