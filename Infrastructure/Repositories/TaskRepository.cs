@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
-using System.Linq;
 
 namespace myRESTAPI.Infrastructure.Repositories
 {
@@ -26,15 +25,16 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> GetById(int id)
         {
-            IQueryable<TaskEntity> query = _db.Tasks.AsQueryable();
-            query = query.Where(task => task.Id == id);
-            return await query.FirstOrDefaultAsync();
+            return await _db.Tasks
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(t => t.Id == id);
         }
 
         public async Task<List<TaskEntity>> GetAllTasks()
         {
-            IQueryable<TaskEntity> query = _db.Tasks.AsQueryable();
-            return await query.ToListAsync();
+            return await _db.Tasks
+                    .AsNoTracking()
+                    .ToListAsync();
         }
 
         public async Task<bool> DeleteTask(int id)
@@ -50,11 +50,7 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> UpdateTask(int id, TaskEntity updatedEntity)
         {
-            IQueryable<TaskEntity> query = _db.Tasks.AsQueryable();
-            query = query.Where(task => task.Id == id);
-            var existing = await query.FirstOrDefaultAsync();
-            if (existing == null)
-                return null;
+            var existing = await _db.Tasks.FirstOrDefaultAsync(t => t.Id == id);
 
             if (updatedEntity.Title != existing.Title && updatedEntity.Title != "")
                 existing.Title = updatedEntity.Title;
@@ -71,11 +67,7 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> CompleteTask(int id)
         {
-            IQueryable<TaskEntity> query = _db.Tasks.AsQueryable();
-            query = query.Where(task => task.Id == id);
-            var existing = await query.FirstOrDefaultAsync();
-            if (existing == null)
-                return null;
+            var existing = await _db.Tasks.FirstOrDefaultAsync(t => t.Id == id);
 
             existing.IsCompleted = true;
             existing.UpdatedAt = DateTime.UtcNow;

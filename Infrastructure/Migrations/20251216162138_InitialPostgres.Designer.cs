@@ -11,8 +11,8 @@ using myRESTAPI.Infrastructure.Persistence;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(TaskDbContext))]
-    [Migration("20251216081633_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20251216162138_InitialPostgres")]
+    partial class InitialPostgres
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

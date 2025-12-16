@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vpBRmMMXB7/iO7yF2NAawDLpwc2gqgNDlqJg77U+ZIvJ2LQ90+Ujjyn9EFxlm34mcPmDoCCeK+4qKoSUhw/FXQ==",
+  "dgSpecHash": "CZgm8uKxkhL7uooSyQJEP69UjstNuHicruYDylJZ3wj+rRZUmTJF59tN0iGdTCN8/YqRf2TIsXHtmWMy84fIyQ==",
   "success": true,
   "projectFilePath": "/home/hofst/myRESTAPI/API/API.csproj",
   "expectedPackageFiles": [
@@ -35,6 +35,8 @@
     "/home/hofst/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "/home/hofst/.nuget/packages/microsoft.openapi/1.6.14/microsoft.openapi.1.6.14.nupkg.sha512",
     "/home/hofst/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/home/hofst/.nuget/packages/npgsql/8.0.3/npgsql.8.0.3.nupkg.sha512",
+    "/home/hofst/.nuget/packages/npgsql.entityframeworkcore.postgresql/8.0.4/npgsql.entityframeworkcore.postgresql.8.0.4.nupkg.sha512",
     "/home/hofst/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.6/sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
     "/home/hofst/.nuget/packages/sqlitepclraw.core/2.1.6/sqlitepclraw.core.2.1.6.nupkg.sha512",
     "/home/hofst/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.6/sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",

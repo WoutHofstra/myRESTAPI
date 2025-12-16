@@ -139,3 +139,5 @@
 /home/hofst/myRESTAPI/API/obj/Debug/net8.0/API.pdb
 /home/hofst/myRESTAPI/API/obj/Debug/net8.0/API.genruntimeconfig.cache
 /home/hofst/myRESTAPI/API/obj/Debug/net8.0/ref/API.dll
+/home/hofst/myRESTAPI/API/bin/Debug/net8.0/Npgsql.dll
+/home/hofst/myRESTAPI/API/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll

@@ -4,7 +4,6 @@ using myRESTAPI.Infrastructure.DependencyInjection;
 using myRESTAPI.Application.Services;
 using myRESTAPI.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using myRESTAPI.Infrastructure.Repositories;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,12 +12,11 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<ITaskService, TaskService>();
 
 var connectionString = Environment.GetEnvironmentVariable("DefaultConnection")
-    ?? "Data Source=app.db";
+    ?? Environment.GetEnvironmentVariable("DefaultConnection");
 
 builder.Services.AddDbContext<TaskDbContext>(options =>
 {
-    options.UseSqlite(connectionString);
-    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+    options.UseNpgsql(connectionString);
 });
 
 builder.Services.AddControllers();
