@@ -10,10 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<ITaskService, TaskService>();
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
 var connectionString = "Data Source=/home/app.db";
 
 builder.Services.AddDbContext<TaskDbContext>(options =>
@@ -21,6 +17,9 @@ builder.Services.AddDbContext<TaskDbContext>(options =>
     options.UseSqlite(connectionString);
 });
 
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
 {
@@ -44,7 +43,6 @@ app.UseCors();
 
 app.UseSwagger();
 app.UseSwaggerUI();
-
 
 app.UseAuthorization();
 app.MapControllers();

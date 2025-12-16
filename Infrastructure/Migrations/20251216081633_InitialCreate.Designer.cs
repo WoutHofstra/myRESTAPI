@@ -11,8 +11,8 @@ using myRESTAPI.Infrastructure.Persistence;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(TaskDbContext))]
-    [Migration("20251215165903_AddIsCompletedToTasks")]
-    partial class AddIsCompletedToTasks
+    [Migration("20251216081633_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +43,9 @@ namespace Infrastructure.Migrations
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(200)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
