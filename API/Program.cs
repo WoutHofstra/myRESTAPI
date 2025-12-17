@@ -1,22 +1,23 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using myRESTAPI.Infrastructure.DependencyInjection;
 using myRESTAPI.Application.Services;
 using myRESTAPI.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
 using Microsoft.Extensions.Configuration;
+using myRESTAPI.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<ITaskService, TaskService>();
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-if (connectionString == null || connectionString == "")
-    Console.WriteLine("No connection string found!");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+                       ?? builder.Configuration["DefaultConnection"];
 
-builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddDbContext<TaskDbContext>(options =>
+    options.UseNpgsql(connectionString));
+
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
