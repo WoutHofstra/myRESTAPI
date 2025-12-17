@@ -1,21 +1,29 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using myRESTAPI.Infrastructure.Persistence;
 using myRESTAPI.Infrastructure.Repositories;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
 
 namespace myRESTAPI.Infrastructure.DependencyInjection
 {
     public static class InfrastructureServiceExtensions
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddInfrastructure(
+            this IServiceCollection services,
+            IConfiguration configuration)
         {
+            var connectionString =
+                configuration.GetConnectionString("DefaultConnection")
+                ?? configuration["DefaultConnection"];
+
             services.AddDbContext<TaskDbContext>(options =>
-                options.UseSqlite(configuration.GetConnectionString("DefaultConnection")));
+            {
+                options.UseNpgsql(connectionString);
+            });
 
             services.AddScoped<ITaskRepository, TaskRepository>();
+
             return services;
         }
     }
 }
-
