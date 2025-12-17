@@ -1,0 +1,2 @@
+[config]
+command = dotnet restore && dotnet publish -c Release -o "%DEPLOYMENT_TARGET%"
