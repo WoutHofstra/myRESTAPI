@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using myRESTAPI.Infrastructure.Persistence;
 using myRESTAPI.Infrastructure.Repositories;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
+
 
 namespace myRESTAPI.Infrastructure.DependencyInjection
 {
