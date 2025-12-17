@@ -4,16 +4,17 @@ using myRESTAPI.Infrastructure.DependencyInjection;
 using myRESTAPI.Application.Services;
 using myRESTAPI.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
 using System;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddScoped<ITaskService, TaskService>();
 
-var connectionString = Environment.GetEnvironmentVariable("DefaultConnection")
-    ?? Environment.GetEnvironmentVariable("DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+if (connectionString == null || connectionString == "")
+    Console.WriteLine("No connection string found!");
 
 builder.Services.AddDbContext<TaskDbContext>(options =>
 {
