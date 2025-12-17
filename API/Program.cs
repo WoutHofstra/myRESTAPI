@@ -4,6 +4,7 @@ using myRESTAPI.Infrastructure.DependencyInjection;
 using myRESTAPI.Application.Services;
 using myRESTAPI.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
