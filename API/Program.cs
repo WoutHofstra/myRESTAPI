@@ -16,10 +16,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 if (connectionString == null || connectionString == "")
     Console.WriteLine("No connection string found!");
 
-builder.Services.AddDbContext<TaskDbContext>(options =>
-{
-    options.UseNpgsql(connectionString);
-});
+builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
