@@ -1,2 +1,3 @@
 [config]
-command = dotnet restore && dotnet publish -c Release -o "%DEPLOYMENT_TARGET%"
+command = dotnet restore && dotnet publish API.csproj -c Release -o "%DEPLOYMENT_TARGET%"
+
