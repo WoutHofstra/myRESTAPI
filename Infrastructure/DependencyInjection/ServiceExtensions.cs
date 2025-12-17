@@ -5,7 +5,6 @@ using myRESTAPI.Infrastructure.Persistence;
 using myRESTAPI.Infrastructure.Repositories;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 
-
 namespace myRESTAPI.Infrastructure.DependencyInjection
 {
     public static class InfrastructureServiceExtensions
@@ -19,9 +18,7 @@ namespace myRESTAPI.Infrastructure.DependencyInjection
                 ?? configuration["DefaultConnection"];
 
             services.AddDbContext<TaskDbContext>(options =>
-            {
-                options.UseNpgsql(connectionString);
-            });
+                options.UseNpgsql(connectionString));
 
             services.AddScoped<ITaskRepository, TaskRepository>();
 
