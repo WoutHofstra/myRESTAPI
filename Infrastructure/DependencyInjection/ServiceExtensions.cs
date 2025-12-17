@@ -17,8 +17,8 @@ namespace myRESTAPI.Infrastructure.DependencyInjection
                 configuration.GetConnectionString("DefaultConnection")
                 ?? configuration["DefaultConnection"];
 
-            services.AddDbContext<TaskDbContext>(options =>
-                options.UseNpgsql(connectionString));
+            services.AddDbContext<TaskDbContext>(
+                options => options.UseNpgsql(connectionString));
 
             services.AddScoped<ITaskRepository, TaskRepository>();
 
