@@ -2753,6 +2753,7 @@
     "net8.0": [
       "Application >= 1.0.0",
       "Infrastructure >= 1.0.0",
+      "Microsoft.EntityFrameworkCore >= 8.*",
       "Microsoft.EntityFrameworkCore.Design >= 8.*",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.4",
       "Swashbuckle.AspNetCore >= 6.*"
@@ -2802,6 +2803,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[8.*, )"
+          },
           "Microsoft.EntityFrameworkCore.Design": {
             "target": "Package",
             "version": "[8.*, )"
