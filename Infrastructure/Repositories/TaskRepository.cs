@@ -30,7 +30,7 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<List<TaskEntity>> GetAllTasks()
         {
-            return await _db.Tasks.ToListAsync();
+            return await _db.Tasks.AsNoTracking().ToListAsync();
         }
 
         public async Task<bool> DeleteTask(int id)
