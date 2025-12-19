@@ -1,0 +1,16 @@
+/home/hofst/myRESTAPI/Infrastructure/bin/Release/net8.0/linux-x64/Infrastructure.deps.json
+/home/hofst/myRESTAPI/Infrastructure/bin/Release/net8.0/linux-x64/Infrastructure.runtimeconfig.json
+/home/hofst/myRESTAPI/Infrastructure/bin/Release/net8.0/linux-x64/Infrastructure.dll
+/home/hofst/myRESTAPI/Infrastructure/bin/Release/net8.0/linux-x64/Infrastructure.pdb
+/home/hofst/myRESTAPI/Infrastructure/bin/Release/net8.0/linux-x64/Domain.dll
+/home/hofst/myRESTAPI/Infrastructure/bin/Release/net8.0/linux-x64/Domain.pdb
+/home/hofst/myRESTAPI/Infrastructure/obj/Release/net8.0/linux-x64/Infrastructure.csproj.AssemblyReference.cache
+/home/hofst/myRESTAPI/Infrastructure/obj/Release/net8.0/linux-x64/Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/hofst/myRESTAPI/Infrastructure/obj/Release/net8.0/linux-x64/Infrastructure.csproj.CoreCompileInputs.cache
+/home/hofst/myRESTAPI/Infrastructure/obj/Release/net8.0/linux-x64/Infrastructure.sourcelink.json
+/home/hofst/myRESTAPI/Infrastructure/obj/Release/net8.0/linux-x64/Infrastructure.csproj.CopyComplete
+/home/hofst/myRESTAPI/Infrastructure/obj/Release/net8.0/linux-x64/Infrastructure.dll
+/home/hofst/myRESTAPI/Infrastructure/obj/Release/net8.0/linux-x64/refint/Infrastructure.dll
+/home/hofst/myRESTAPI/Infrastructure/obj/Release/net8.0/linux-x64/Infrastructure.pdb
+/home/hofst/myRESTAPI/Infrastructure/obj/Release/net8.0/linux-x64/Infrastructure.genruntimeconfig.cache
+/home/hofst/myRESTAPI/Infrastructure/obj/Release/net8.0/linux-x64/ref/Infrastructure.dll

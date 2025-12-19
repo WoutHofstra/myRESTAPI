@@ -1,0 +1,16 @@
+/home/hofst/myRESTAPI/Application/bin/Release/net8.0/Application.deps.json
+/home/hofst/myRESTAPI/Application/bin/Release/net8.0/Application.dll
+/home/hofst/myRESTAPI/Application/bin/Release/net8.0/Application.pdb
+/home/hofst/myRESTAPI/Application/bin/Release/net8.0/Domain.dll
+/home/hofst/myRESTAPI/Application/bin/Release/net8.0/Infrastructure.dll
+/home/hofst/myRESTAPI/Application/bin/Release/net8.0/Domain.pdb
+/home/hofst/myRESTAPI/Application/bin/Release/net8.0/Infrastructure.pdb
+/home/hofst/myRESTAPI/Application/obj/Release/net8.0/Application.csproj.AssemblyReference.cache
+/home/hofst/myRESTAPI/Application/obj/Release/net8.0/Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/hofst/myRESTAPI/Application/obj/Release/net8.0/Application.csproj.CoreCompileInputs.cache
+/home/hofst/myRESTAPI/Application/obj/Release/net8.0/Application.sourcelink.json
+/home/hofst/myRESTAPI/Application/obj/Release/net8.0/Application.csproj.CopyComplete
+/home/hofst/myRESTAPI/Application/obj/Release/net8.0/Application.dll
+/home/hofst/myRESTAPI/Application/obj/Release/net8.0/refint/Application.dll
+/home/hofst/myRESTAPI/Application/obj/Release/net8.0/Application.pdb
+/home/hofst/myRESTAPI/Application/obj/Release/net8.0/ref/Application.dll

@@ -1,0 +1,10 @@
+/home/hofst/myRESTAPI/Domain/bin/Release/net8.0/Domain.deps.json
+/home/hofst/myRESTAPI/Domain/bin/Release/net8.0/Domain.dll
+/home/hofst/myRESTAPI/Domain/bin/Release/net8.0/Domain.pdb
+/home/hofst/myRESTAPI/Domain/obj/Release/net8.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/hofst/myRESTAPI/Domain/obj/Release/net8.0/Domain.csproj.CoreCompileInputs.cache
+/home/hofst/myRESTAPI/Domain/obj/Release/net8.0/Domain.sourcelink.json
+/home/hofst/myRESTAPI/Domain/obj/Release/net8.0/Domain.dll
+/home/hofst/myRESTAPI/Domain/obj/Release/net8.0/refint/Domain.dll
+/home/hofst/myRESTAPI/Domain/obj/Release/net8.0/Domain.pdb
+/home/hofst/myRESTAPI/Domain/obj/Release/net8.0/ref/Domain.dll

@@ -1,0 +1,3 @@
+/home/hofst/myRESTAPI/Domain/bin/Release/net8.0/linux-x64/publish/Domain.dll
+/home/hofst/myRESTAPI/Domain/bin/Release/net8.0/linux-x64/publish/Domain.deps.json
+/home/hofst/myRESTAPI/Domain/bin/Release/net8.0/linux-x64/publish/Domain.pdb
