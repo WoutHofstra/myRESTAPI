@@ -25,12 +25,16 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> GetById(int id)
         {
-            return await _db.Tasks.FindAsync(id);
+            return await _db.Tasks
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(t => t.Id == id);
         }
 
         public async Task<List<TaskEntity>> GetAllTasks()
         {
-            return await _db.Tasks.ToListAsync();
+            return await _db.Tasks
+                    .AsNoTracking()
+                    .ToListAsync();
         }
 
         public async Task<bool> DeleteTask(int id)
@@ -46,13 +50,16 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> UpdateTask(int id, TaskEntity updatedEntity)
         {
-            var existing = await _db.Tasks.FindAsync(id);
-            if (existing == null)
-                return null;
+            var existing = await _db.Tasks.FirstOrDefaultAsync(t => t.Id == id);
 
-            existing.Title = updatedEntity.Title;
-            existing.Description = updatedEntity.Description;
-            existing.Deadline = updatedEntity.Deadline;
+            if (updatedEntity.Title != existing.Title && updatedEntity.Title != "")
+                existing.Title = updatedEntity.Title;
+
+            if (updatedEntity.Description != existing.Description && updatedEntity.Description != "")
+                existing.Description = updatedEntity.Description;
+
+            if (updatedEntity.Deadline != existing.Deadline)
+                existing.Deadline = updatedEntity.Deadline;
 
             await _db.SaveChangesAsync();
             return existing;
@@ -60,11 +67,10 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> CompleteTask(int id)
         {
-            var existing = await _db.Tasks.FindAsync(id);
-            if (existing == null)
-                return null;
+            var existing = await _db.Tasks.FirstOrDefaultAsync(t => t.Id == id);
 
-            existing.CompletedAt = DateTime.UtcNow;
+            existing.IsCompleted = true;
+            existing.UpdatedAt = DateTime.UtcNow;
 
             await _db.SaveChangesAsync();
             return existing;
