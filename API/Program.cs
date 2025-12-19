@@ -8,6 +8,7 @@ using myRESTAPI.Infrastructure.Repositories;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Hosting;
 using System;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +21,8 @@ var helloMessage = builder.Configuration.GetConnectionString("TEST_STRING");
 
 builder.Services.AddDbContext<TaskDbContext>(options =>
     options.UseNpgsql(connectionString),
-    ServiceLifetime.Scoped);
+    ServiceLifetime.Scoped
+    );
 
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 

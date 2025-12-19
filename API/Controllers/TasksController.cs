@@ -22,6 +22,7 @@ public class TasksController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public async Task<IActionResult> GetTaskById(int id)
     {
         var task = await _taskService.GetTaskById(id);
