@@ -10,10 +10,12 @@ using Microsoft.EntityFrameworkCore;
 public class TasksController : ControllerBase
 {
     private readonly ITaskService _taskService;
+    private readonly TaskDbContext _db;
 
-    public TasksController(ITaskService taskService)
+    public TasksController(ITaskService taskService, TaskDbContext db)
     {
         _taskService = taskService;
+        _db = db;
     }
 
     [HttpGet]
@@ -75,14 +77,6 @@ public class TasksController : ControllerBase
         }
         return Ok(task);
     } 
-
-    private readonly TaskDbContext _db;
-
-    public TasksController(TaskDbContext db)
-    {
-        _db = db;
-    }
-
 
     [HttpGet("debug-db")]
     public async Task<IActionResult> DebugDb()
