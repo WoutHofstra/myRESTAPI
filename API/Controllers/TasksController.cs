@@ -15,6 +15,7 @@ public class TasksController : ControllerBase
     }
 
     [HttpGet]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public async Task<IActionResult> GetAllTasks()
     {
         var tasks = await _taskService.GetAllTasksAsync();
