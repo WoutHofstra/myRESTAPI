@@ -2,20 +2,16 @@ using Microsoft.AspNetCore.Mvc;
 using myRESTAPI.Application.DTOs;
 using myRESTAPI.Application.Services;
 using System.Threading.Tasks;
-using myRESTAPI.Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
 
 [ApiController]
 [Route("api/v1/tasks")]
 public class TasksController : ControllerBase
 {
     private readonly ITaskService _taskService;
-    private readonly TaskDbContext _db;
 
-    public TasksController(ITaskService taskService, TaskDbContext db)
+    public TasksController(ITaskService taskService)
     {
         _taskService = taskService;
-        _db = db;
     }
 
     [HttpGet]
@@ -77,12 +73,4 @@ public class TasksController : ControllerBase
         }
         return Ok(task);
     } 
-
-    [HttpGet("debug-db")]
-    public async Task<IActionResult> DebugDb()
-    {
-        var server = _db.Database.GetDbConnection().DataSource;
-        var dbName = _db.Database.GetDbConnection().Database;
-        return Ok(new {server,dbName});
-    }
 }
