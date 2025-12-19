@@ -9,13 +9,14 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Hosting;
 using System;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore.Design;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<ITaskService, TaskService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-                       ?? builder.Configuration["DefaultConnection"];
+                       ?? throw new OperationException("No ConnectionString included");
 
 var helloMessage = builder.Configuration.GetConnectionString("TEST_STRING");
 
