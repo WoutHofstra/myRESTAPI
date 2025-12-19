@@ -15,6 +15,8 @@ builder.Services.AddScoped<ITaskService, TaskService>();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
                        ?? builder.Configuration["DefaultConnection"];
 
+var helloMessage = builder.Configuration.GetConnectionString("TEST_STRING");
+
 builder.Services.AddDbContext<TaskDbContext>(options =>
     options.UseNpgsql(connectionString));
 
@@ -45,11 +47,11 @@ using (var scope = app.Services.CreateScope())
         var db = scope.ServiceProvider.GetRequiredService<TaskDbContext>();
         db.Database.Migrate();
 
-        logger.LogInformation("Database migration completed successfully.");
+        logger.LogInformation($"{helloMessage} Database migration completed successfully.");
     }
     catch
     {
-        logger.LogError("Database migration failed. Application will continue to run.");
+        logger.LogError($"{helloMessage} Database migration failed. Application will continue to run.");
     }
 }
 
