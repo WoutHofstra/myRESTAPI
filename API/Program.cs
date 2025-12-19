@@ -19,7 +19,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 var helloMessage = builder.Configuration.GetConnectionString("TEST_STRING");
 
 builder.Services.AddDbContext<TaskDbContext>(options =>
-    options.UseNpgsql(connectionString));
+    options.UseNpgsql(connectionString),
+    ServiceLifetime.Scoped);
 
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 
