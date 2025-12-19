@@ -5,6 +5,8 @@ using myRESTAPI.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using myRESTAPI.Infrastructure.Repositories;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,8 +38,19 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<TaskDbContext>();
-    db.Database.Migrate();
+    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+
+    try
+    {
+        var db = scope.ServiceProvider.GetRequiredService<TaskDbContext>();
+        db.Database.Migrate();
+
+        logger.LogInformation("Database migration completed successfully.");
+    }
+    catch
+    {
+        logger.LogError("Database migration failed. Application will continue to run.");
+    }
 }
 
 app.UseCors();
