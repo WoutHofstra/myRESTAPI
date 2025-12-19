@@ -25,7 +25,6 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> GetById(int id)
         {
-            _db.ChangeTracker.Clear();
             return await _db.Tasks.AsNoTracking().FirstOrDefaultAsync(t => t.Id == id);
         }
 
