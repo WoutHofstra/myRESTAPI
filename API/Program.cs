@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using myRESTAPI.Infrastructure.Repositories;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Hosting;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,9 +50,9 @@ using (var scope = app.Services.CreateScope())
 
         logger.LogInformation($"{helloMessage} Database migration completed successfully.");
     }
-    catch
+    catch (Exception ex)
     {
-        logger.LogError($"{helloMessage} Database migration failed. Application will continue to run.");
+        logger.LogError(ex, "Database migration failed. Application will continue to run.");
     }
 }
 
