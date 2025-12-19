@@ -25,16 +25,12 @@ namespace myRESTAPI.Infrastructure.Repositories
 
         public async Task<TaskEntity> GetById(int id)
         {
-            return await _db.Tasks
-                    .AsNoTracking()
-                    .FirstOrDefaultAsync(t => t.Id == id);
+            return await _db.Tasks.AsNoTracking().FirstOrDefaultAsync(t => t.Id == id);
         }
 
         public async Task<List<TaskEntity>> GetAllTasks()
         {
-            return await _db.Tasks
-                    .AsNoTracking()
-                    .ToListAsync();
+            return await _db.Tasks.ToListAsync();
         }
 
         public async Task<bool> DeleteTask(int id)
@@ -61,6 +57,8 @@ namespace myRESTAPI.Infrastructure.Repositories
             if (updatedEntity.Deadline != existing.Deadline)
                 existing.Deadline = updatedEntity.Deadline;
 
+            existing.UpdatedAt = DateTime.Now;
+
             await _db.SaveChangesAsync();
             return existing;
         }
@@ -70,7 +68,7 @@ namespace myRESTAPI.Infrastructure.Repositories
             var existing = await _db.Tasks.FirstOrDefaultAsync(t => t.Id == id);
 
             existing.IsCompleted = true;
-            existing.UpdatedAt = DateTime.UtcNow;
+            existing.UpdatedAt = DateTime.Now;
 
             await _db.SaveChangesAsync();
             return existing;
