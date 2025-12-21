@@ -53,8 +53,10 @@ namespace myRESTAPI.Application.Services
                 Id = entity.Id,
                 Title = entity.Title,
                 Description = entity.Description,
+                IsCompleted = entity.IsCompleted,
                 Deadline = entity.Deadline,
-                CreatedAt = entity.CreatedAt
+                CreatedAt = entity.CreatedAt,
+                UpdatedAt = entity.UpdatedAt
             };
         }
 
@@ -67,8 +69,10 @@ namespace myRESTAPI.Application.Services
                Id = entity.Id,
                Title = entity.Title,
                Description = entity.Description,
+               IsCompleted = entity.IsCompleted,
                Deadline = entity.Deadline,
-               CreatedAt = entity.CreatedAt 
+               CreatedAt = entity.CreatedAt,
+               UpdatedAt = entity.UpdatedAt
             }).ToList();
         }
 

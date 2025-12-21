@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4hoeCbI7ZV3r2uNYioLPNhFeKVusfkmAF+pNKAbaTWT5HnAmL8lQz3AYIYMjs6gaHULNFOKmNNwjFi9+ufHWZA==",
+  "dgSpecHash": "LaiDtvGVXrFkSNcISymszhD2ycBHMXNsHrAcdgpoHOsThjIg371OCtU3C1Pk7qoEQ0B1JudvIXI2FDcQGaGgow==",
   "success": true,
   "projectFilePath": "/home/hofst/myRESTAPI/Infrastructure/Infrastructure.csproj",
   "expectedPackageFiles": [
